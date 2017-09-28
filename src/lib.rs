@@ -58,7 +58,6 @@ GNU C11 6.3.0 20170406 -mtune=generic -march=x86-64 -g -O2 -O3 -std=gnu11 -fgnu8
 ```
  */
 
-
 #![deny(missing_docs)]
 #![deny(missing_debug_implementations)]
 
@@ -67,7 +66,8 @@ extern crate gimli;
 extern crate object;
 
 use fallible_iterator::FallibleIterator;
-use gimli::{CompilationUnitHeadersIter, DebugAbbrev, DebugInfo, DebugStr, EndianBuf, NativeEndian, Reader};
+use gimli::{CompilationUnitHeadersIter, DebugAbbrev, DebugInfo, DebugStr, EndianBuf, NativeEndian,
+            Reader};
 use std::error;
 use std::fmt;
 use std::fs;
@@ -161,7 +161,7 @@ impl Options {
     /// compilation units of the configured files.
     pub fn producers<F, T>(self, mut f: F) -> Result<T>
     where
-        F: FnMut(&mut Producers) -> T
+        F: FnMut(&mut Producers) -> T,
     {
         let mut contents = vec![];
         {

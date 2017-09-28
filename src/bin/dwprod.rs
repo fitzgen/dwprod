@@ -31,11 +31,9 @@ fn parse_args() -> clap::ArgMatches<'static> {
         .version(env!("CARGO_PKG_VERSION"))
         .author(env!("CARGO_PKG_AUTHORS"))
         .about(env!("CARGO_PKG_DESCRIPTION"))
-        .arg(
-            clap::Arg::with_name("file")
-                .required(true)
-                .help("The shared library or executable we should search for \
-                       `DW_AT_producer` information in."),
-        )
+        .arg(clap::Arg::with_name("file").required(true).help(
+            "The shared library or executable we should search for \
+             `DW_AT_producer` information in.",
+        ))
         .get_matches()
 }
