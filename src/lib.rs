@@ -195,7 +195,8 @@ impl Options {
     }
 }
 
-/// TODO FITZGEN
+/// A `FallibleIterator` yielding `String` values for the `DW_AT_producer` for
+/// each compilation unit in the configured file.
 #[derive(Debug)]
 pub struct Producers<'a> {
     debug_str: DebugStr<EndianBuf<'a, NativeEndian>>,
