@@ -204,11 +204,12 @@ pub struct Producers<'a> {
     headers: CompilationUnitHeadersIter<EndianBuf<'a, NativeEndian>>,
 }
 
-impl<'a> FallibleIterator for Producers<'a> {
-    type Error = Error;
-    type Item = String;
-
-    fn next(&mut self) -> Result<Option<Self::Item>> {
+impl<'a> Producers<'a> {
+    /// Get the next `DW_AT_producer`, if any.
+    ///
+    /// It is usually more ergonomic to use `FallibleIterator` combinators, but
+    /// this method exists as an escape hatch.
+    pub fn next(&mut self) -> Result<Option<String>> {
         loop {
             let unit_header = match self.headers.next()? {
                 None => return Ok(None),
@@ -238,6 +239,15 @@ impl<'a> FallibleIterator for Producers<'a> {
             // No DW_AT_producer for this compilation unit, so just continue to
             // the next unit header.
         }
+    }
+}
+
+impl<'a> FallibleIterator for Producers<'a> {
+    type Error = Error;
+    type Item = String;
+
+    fn next(&mut self) -> Result<Option<Self::Item>> {
+        Producers::next(self)
     }
 }
 

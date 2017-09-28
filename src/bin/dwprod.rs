@@ -1,8 +1,6 @@
 extern crate clap;
 extern crate dwprod;
-extern crate fallible_iterator;
 
-use fallible_iterator::FallibleIterator;
 use std::process;
 
 fn main() {
