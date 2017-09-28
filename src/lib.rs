@@ -2,6 +2,8 @@
 Find the `DW_AT_producer` for all compilation units within a shared library or
 executable.
 
+[![](https://docs.rs/dwprod/badge.svg)](https://docs.rs/dwprod/) [![](http://meritbadge.herokuapp.com/dwprod)](https://crates.io/crates/dwprod) [![](https://img.shields.io/crates/d/dwprod.png)](https://crates.io/crates/dwprod) [![Unix Build Status](https://travis-ci.org/fitzgen/dwprod.png?branch=master)](https://travis-ci.org/fitzgen/dwprod)
+
 ### What is `DW_AT_producer`?
 
 The `DW_AT_producer` is an attribute within DWARF debug info that says what
