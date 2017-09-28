@@ -1,9 +1,14 @@
 [package]
 authors = ["Nick Fitzgerald <fitzgen@gmail.com>"]
-description = "Find the `DW_AT_producer` values for all compilation units within an shared library or executable."
+categories = ["command-line-utilities", "development-tools::debugging"]
+description = "Find the `DW_AT_producer` values for all compilation units within a shared library or executable."
+keywords = ["producer", "dwarf", "DW_AT_producer", "compiler", "debug"]
 license = "Apache-2.0/MIT"
 name = "dwprod"
+readme = "./README.md"
+repository = "https://github.com/fitzgen/dwprod"
 version = "0.1.0"
+
 [[bin]]
 doc = false
 name = "dwprod"
@@ -21,4 +26,8 @@ version = "2.26.2"
 
 [features]
 default = ["exe"]
+
+# When enabled, build the `dwprod` command line executable. When disabled, the
+# executable is not built, `clap` is not depended upon, and this crate can be
+# used purely as a library.
 exe = ["clap"]
