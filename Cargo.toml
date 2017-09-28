@@ -31,3 +31,7 @@ default = ["exe"]
 # executable is not built, `clap` is not depended upon, and this crate can be
 # used purely as a library.
 exe = ["clap"]
+
+[profile.release]
+# Ensure that we emit debug info even in release builds. The tests rely on it.
+debug = true
