@@ -293,8 +293,8 @@ impl<'a> Producers<'a> {
                         gimli::AttributeValue::DebugStrRef(offset) => {
                             return Ok(Some(self.debug_str.get_str(offset)?.to_string()?.into()));
                         }
-                        gimli::AttributeValue::String(string) => {
-                            return Ok(Some(String::from_utf8_lossy(&string).into_owned()));
+                        gimli::AttributeValue::String(ref string) => {
+                            return Ok(Some(String::from_utf8_lossy(string).into_owned()));
                         }
                         gimli::AttributeValue::Block(data) => {
                             return Ok(Some(data.to_string()?.into()));
